@@ -26,8 +26,45 @@
     
     <!--                Artfictes    -->
     <script src="app/data/menudata.Service.js"></script>
-    <script src="app/mainapp/category.Controller.js"></script>
-    <script src="app/mainapp/items.Controller.js"></script>
+
+
+
+
+    <!-- <script src="app/mainapp/category.Controller.js"></script> -->
+    <script>
+        // The controller
+        (()=> {
+            'use strict';
+            angular.module('menuApp')
+            .controller('categoryMenuController', categoryMenuController)
+
+            categoryMenuController.$inject = ['categories']
+            function categoryMenuController(categories){
+                let ctrl = this;
+
+                ctrl.categories = categories;
+            }
+        })();
+    </script>
+
+    <!-- <script src="app/mainapp/items.Controller.js"></script> -->
+    <script>
+        // items controller
+        (()=> {
+            'use strict';
+            angular.module('menuApp')
+            .controller('itemsMenuController', itemsMenuController)
+
+
+            itemsMenuController.$inject = ['items']
+            function itemsMenuController(items){
+                let ctrl = this;
+
+                ctrl.items = items.menu_items;
+                ctrl.title = items.category;
+            }
+        })();
+    </script>
 
 </body>
 </html>
